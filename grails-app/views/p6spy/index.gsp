@@ -59,7 +59,7 @@ function refresh() {
 }
 
 function clearEntries() {
-	$.get('clearEntries', function(data) {
+	$.get('p6spy/clearEntries', function(data) {
 		$('#sqlStatementTable').dataTable().fnDraw(false); 
 	});
 }
