@@ -177,7 +177,7 @@ class P6spyService {
 		entry.category.toLowerCase().contains(lowerText)
 	}
 
-	protected List<Entry> findMatchingEntries(List<Entry> entries, int start, int maxCount) {
+	protected List<Entry> findMatchingEntries(List<Entry> entries, Integer start, Integer maxCount) {
 		List<Entry> matching = []
 		int max = Math.min(start + maxCount, entries.size())
 		for (int i = start; i < max; i++) {
