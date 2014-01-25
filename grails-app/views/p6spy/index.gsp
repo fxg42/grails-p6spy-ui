@@ -17,7 +17,7 @@ $(document).ready(function() {
 		"bStateSave": true,
 		"bProcessing": false,
 		"bServerSide": true,
-		"sAjaxSource": "sqlStatements",
+		"sAjaxSource": "p6spy/sqlStatements",
 		
 		"fnServerData": function(sSource, aoData, fnCallback) {
 			$.getJSON(sSource, aoData, function(json) {
@@ -94,7 +94,7 @@ function pad(n) {
 function drawQueriesOverTime() {
 
 	var jsonData = $.ajax({
-		url:      'queriesOverTime',
+		url:      'p6spy/queriesOverTime',
 		dataType: 'json',
 		async:     false
 	}).responseText;
@@ -114,7 +114,7 @@ function drawQueriesOverTime() {
 function drawQueryTrafficOverTime() {
 
 	var jsonData = $.ajax({
-		url:      'queryTrafficOverTime',
+		url:      'p6spy/queryTrafficOverTime',
 		dataType: 'json',
 		async:     false
 	}).responseText;
