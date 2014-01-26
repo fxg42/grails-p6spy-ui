@@ -10,7 +10,8 @@ Forked to fix different runtime errors.
 
 ## Usage
 
-**BuildConfig.groovy**
+Add the plugin dependency in **BuildConfig.groovy** excluding the bundled jQuery
+dependency:
 
     plugins {
       compile (":p6spy-ui:0.2-SNAPSHOT") {
@@ -18,7 +19,8 @@ Forked to fix different runtime errors.
       }
     }
 
-**DataSource.groovy**
+Comment out the `driverClassName` property in **DataSource.groovy** and replace
+it with the P6Spy driver:
 
     dataSource {
       development {
@@ -27,6 +29,9 @@ Forked to fix different runtime errors.
       }
     }
 
-**Config.groovy**
+In **Config.groovy**, instruct P6Spy to use the original jdbc driver:
 
     grails.plugin.p6spy.realdriver = "org.postgresql.Driver"
+
+Start the app and go to [http://localhost:8080/myapp/p6spy].
+
