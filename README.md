@@ -33,5 +33,5 @@ In **Config.groovy**, instruct P6Spy to use the original jdbc driver:
 
     grails.plugin.p6spy.realdriver = "org.postgresql.Driver"
 
-Start the app and go to [http://localhost:8080/myapp/p6spy].
+Start the app and go to [http://localhost:8080/myapp/p6spy](http://localhost:8080/myapp/p6spy).
 
