@@ -170,11 +170,27 @@ class P6spyService {
 	}
 
 	protected boolean containsText(Entry entry, String text) {
-		String lowerText = text.toLowerCase()
-
-		entry.preparedSql.toLowerCase().contains(lowerText) ||
-		entry.sql.toLowerCase().contains(lowerText) ||
-		entry.category.toLowerCase().contains(lowerText)
+    String lowerText = text.toLowerCase()
+    def parts = lowerText.toLowerCase().tokenize(':')
+  
+    if (parts.size() == 2) {
+      switch (parts[0]) {
+      case 'category':
+        entry.category.contains(parts[1])
+        break
+      case 'prepared':
+        entry.preparedSql.contains(parts[1])
+        break
+      case 'sql':
+        entry.sql.contains(parts[1])
+        break
+      default:
+        entry.category.contains(parts[1]) || entry.preparedSql.contains(parts[1]) || entry.sql.contains(parts[1])
+        break
+      }
+    } else {
+      entry.category.contains(lowerText) || entry.preparedSql.contains(lowerText) || entry.sql.contains(lowerText)
+    }
 	}
 
 	protected List<Entry> findMatchingEntries(List<Entry> entries, Integer start, Integer maxCount) {
