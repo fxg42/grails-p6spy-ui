@@ -10,8 +10,23 @@ Forked to fix different runtime errors.
 
 ## Usage
 
+**BuildConfig.groovy**
+
     plugins {
       compile (":p6spy-ui:0.2-SNAPSHOT") {
         excludes 'jquery'
       }
     }
+
+**DataSource.groovy**
+
+    dataSource {
+      development {
+        // driverClassName = "org.postgresql.Driver"
+        driverClassName = "com.p6spy.engine.spy.P6SpyDriver"
+      }
+    }
+
+**Config.groovy**
+
+    grails.plugin.p6spy.realdriver = "org.postgresql.Driver"
